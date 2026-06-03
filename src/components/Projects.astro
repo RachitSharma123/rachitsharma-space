@@ -1,165 +1,67 @@
 ---
 const categories = [
   {
-    label: '// client_sites',
-    title: 'Client Websites',
+    label: '// client_work',
+    title: 'Client Work',
     projects: [
       {
         id: '01',
         name: 'Impact Property Media',
         url: 'https://impactpropertymedia.com.au',
-        desc: 'Full real-estate media site with CMS, portfolio grid, AI chatbot for lead capture, and Telegram notifications on every inquiry. Vercel + Supabase.',
+        desc: 'Problem: real-estate agency losing leads to slow follow-up. Built full site with AI chatbot + Telegram pipeline — every inquiry fires a notification with contact details in under 3 seconds. Manual follow-up cut to zero.',
         tags: ['Next.js', 'Supabase', 'Telegram', 'AI Chatbot'],
         highlight: true,
+        casestudy: true,
       },
       {
         id: '02',
-        name: 'Royal Domain Café',
-        url: 'https://royal-domain-cafe.vercel.app',
-        desc: 'Café website with Isabelle AI chatbot, online menu, and Telegram lead delivery. Built and deployed in under 12 hours.',
-        tags: ['Next.js', 'Three.js', 'AI Chatbot', 'Vercel'],
-        highlight: true,
-      },
-      {
-        id: '03',
-        name: 'Saros Barbershop',
-        url: 'https://saros-barbershop.vercel.app',
-        desc: 'Local barbershop site with booking CTA, services, and gallery.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '04',
-        name: 'Tropicana Juice Bar',
-        url: 'https://tropicana-juice-bar.vercel.app',
-        desc: 'Vibrant juice bar site with menu, branding, and contact form.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '05',
-        name: 'Vasu Traders',
-        url: 'https://vasu-traders.vercel.app',
-        desc: 'Business website for a trading company with services and enquiry flow.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '06',
-        name: 'Perfect Property',
-        url: 'https://perfectproperty.vercel.app',
-        desc: 'Property media showcase site with portfolio and contact.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '07',
-        name: 'Botanical Events',
-        url: 'https://botanical-events-demo.vercel.app',
-        desc: 'Elegant events company demo site with floral aesthetic and booking CTA.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '08',
         name: 'Nestco',
         url: 'https://nestco-site.vercel.app',
-        desc: 'Nest & Co client site with WhatsApp bot integration. $150 site, $20/mo automation package.',
+        desc: 'Client site bundled with a $20/mo WhatsApp bot automation package — handles FAQs and routes enquiries automatically.',
         tags: ['Astro', 'WhatsApp Bot', 'Vercel'],
       },
       {
-        id: '09',
-        name: 'Pizza Tabrabane',
-        url: 'https://pizza-tabrabane.vercel.app',
-        desc: 'Pizza restaurant site with menu, location, and online ordering CTA.',
-        tags: ['Astro', 'Vercel'],
-      },
-      {
-        id: '10',
-        name: 'Tarator South Melbourne',
-        url: 'https://tarator-south-melbourne-26fc892c.vercel.app',
-        desc: 'Restaurant website for a South Melbourne eatery.',
-        tags: ['Static', 'Vercel'],
-      },
-      {
-        id: '11',
-        name: 'WPHO Site',
-        url: 'https://wpho-site.vercel.app',
-        desc: 'Professional website for WPHO with services and contact.',
-        tags: ['Static', 'Vercel'],
-      },
-      {
-        id: '12',
+        id: '04',
         name: 'Pharmaceutica',
         url: 'https://pharma.vercel.app',
-        desc: 'Pharma client site with React/Vite/Tailwind stack, GitHub Actions CI/CD.',
+        desc: 'Pharma client site with React/Vite/Tailwind stack and GitHub Actions CI/CD — deploys on every push.',
         tags: ['React', 'Vite', 'Tailwind', 'GitHub Actions'],
       },
     ],
   },
   {
-    label: '// tools_and_apps',
-    title: 'Tools & Apps',
+    label: '// labs',
+    title: 'Labs & Experiments',
     projects: [
       {
-        id: '13',
+        id: '05',
         name: 'Resume Forge',
         url: 'https://www.resumeforge.surf',
-        desc: 'AI resume tailoring: paste a job description, the AI rewrites your resume to match. ATS scoring, cover letter gen, PDF export.',
+        desc: 'Paste a job description → AI rewrites your resume to match. ATS scoring, cover letter gen, PDF export. Built for my own job hunt, now live for anyone.',
         tags: ['Python', 'FastAPI', 'Next.js', 'OpenAI', 'ReportLab'],
         highlight: true,
       },
       {
-        id: '14',
+        id: '06',
         name: 'AI Graph (NeuronMap)',
         url: 'https://www.aigraph.site',
-        desc: 'Self-evolving AI knowledge graph. Obsidian-style D3 force graph that grows every hour via Claude API. Live on Astro.',
+        desc: 'Self-evolving knowledge graph that grows every hour via Claude API. Obsidian-style D3 force visualization — nodes appear as the AI discovers new connections.',
         tags: ['Astro', 'D3.js', 'Claude API', 'Cron'],
         highlight: true,
       },
       {
-        id: '15',
-        name: 'Prashna Kundali',
-        url: 'https://prashna-kundali.vercel.app',
-        desc: 'Vedic Prashna astrology oracle. Ask a question, get a full AI chart reading with houses, planets, and remedies.',
-        tags: ['Next.js', 'NVIDIA NIM', 'Vedic Astrology'],
-      },
-      {
-        id: '16',
-        name: 'VedicJyotish',
-        url: 'https://vedic-jyotish-chi.vercel.app',
-        desc: 'Multi-provider Vedic astrology platform. DeepSeek, OpenRouter, Kimi. Lagna, Moon sign, planetary positions.',
-        tags: ['Next.js', 'TypeScript', 'LLM', 'Vercel'],
-      },
-      {
-        id: '17',
+        id: '07',
         name: 'GetAJob',
         url: 'https://getajob-orcin.vercel.app',
-        desc: 'AI-powered job matching that maps your skills to real openings using semantic search and RAG.',
+        desc: 'AI job matching using RAG + semantic search. Upload resume, get ranked openings with match scores.',
         tags: ['Next.js', 'RAG', 'LLM', 'Supabase'],
       },
       {
-        id: '18',
-        name: 'RHIGN MVP',
-        url: 'https://rhign-mvp.vercel.app',
-        desc: 'MVP for RHIGN. Early-stage product with Next.js frontend.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '19',
-        name: 'Hamster',
-        url: 'https://hamster-rho-ruby.vercel.app',
-        desc: 'Next.js app deployed to Vercel production.',
-        tags: ['Next.js', 'Vercel'],
-      },
-      {
-        id: '20',
-        name: 'rsharma.cv',
-        url: 'https://www.rsharma.cv',
-        desc: 'Personal CV / résumé site with custom domain.',
-        tags: ['Static', 'Custom Domain'],
-      },
-      {
-        id: '21',
-        name: 'QR Redirect',
-        url: 'https://qr-redirect-gold-pi.vercel.app',
-        desc: 'QR code redirect service built on Next.js.',
-        tags: ['Next.js', 'Vercel'],
+        id: '08',
+        name: 'Prashna Kundali',
+        url: 'https://prashna-kundali.vercel.app',
+        desc: 'Vedic Prashna astrology oracle powered by NVIDIA NIM. Ask a question, get a full AI chart reading with houses, planets, and remedies.',
+        tags: ['Next.js', 'NVIDIA NIM', 'Vedic Astrology'],
       },
     ],
   },
@@ -173,7 +75,7 @@ const categories = [
       Systems I've <span class="accent">shipped</span>
     </h2>
     <p class="projects-sub fade-up">
-      21 projects across Vercel. Everything below is live and clickable.
+      Selected work. Everything below is live and clickable.
     </p>
 
     {categories.map((cat) => (
@@ -196,6 +98,7 @@ const categories = [
                 <div class="project-meta">
                   <span class="project-id mono">{p.id}</span>
                   <span class="project-status mono live">live</span>
+                  {p.casestudy && <span class="project-status mono case">case study</span>}
                 </div>
                 <svg class="project-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
@@ -350,6 +253,12 @@ const categories = [
   color: var(--accent3);
   border-color: rgba(74,222,128,0.3);
   background: rgba(74,222,128,0.05);
+}
+
+.project-status.case {
+  color: var(--accent);
+  border-color: rgba(245,158,11,0.3);
+  background: rgba(245,158,11,0.05);
 }
 
 .project-ext {
