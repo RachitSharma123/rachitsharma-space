@@ -1,0 +1,173 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Rachit Sharma | Build. Automate. Ship.',
+  description = 'Rachit Sharma | Business Analyst, Systems Analyst & AI builder based in Melbourne. Open to full-time roles. Built multi-agent AI pipelines, automation systems, and data tools.'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content="https://rachitsharma.space" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+</head>
+<body>
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+  <!-- Custom cursor (desktop only) -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <div class="otw-bar">
+    <span class="otw-dot"></span>
+    <span class="otw-text">Open to full-time roles · Business Analyst · Systems Analyst · Data Analyst · Melbourne, AU</span>
+    <a href="/RachitS_AI.pdf" download class="otw-btn">Download CV</a>
+  </div>
+  <slot />
+</body>
+</html>
+
+<style>
+  .otw-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(10,10,8,0.97);
+    border-bottom: 1px solid rgba(74,222,128,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 30px;
+  }
+
+  .otw-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: otw-pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes otw-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #4ade80; }
+    50% { opacity: 0.5; box-shadow: 0 0 16px #4ade80; }
+  }
+
+  .otw-text {
+    color: rgba(255,255,255,0.45);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .otw-btn {
+    color: #4ade80;
+    border: 1px solid rgba(74,222,128,0.4);
+    padding: 0.15rem 0.6rem;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .otw-btn:hover {
+    background: rgba(74,222,128,0.1);
+    border-color: #4ade80;
+  }
+
+  @media (max-width: 600px) {
+    .otw-text {
+      display: none;
+    }
+    .otw-bar {
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .otw-bar::after {
+      content: 'Open to work · Melbourne, AU';
+      color: rgba(255,255,255,0.45);
+      font-size: 0.62rem;
+      letter-spacing: 0.04em;
+    }
+  }
+</style>
+
+<script>
+  // Only activate cursor on pointer:fine (mouse) devices
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    if (dot && ring) {
+      document.body.classList.add('cursor-active');
+      let mx = 0, my = 0, rx = 0, ry = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+      });
+
+      // Lagged ring for magnetic feel
+      (function tick() {
+        rx += (mx - rx) * 0.13;
+        ry += (my - ry) * 0.13;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(tick);
+      })();
+
+      // Expand ring on interactive elements
+      document.addEventListener('mouseover', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('a, button, .project-card, .service-card, .contact-method, .stack-cat')) {
+          document.body.classList.add('cursor-hover');
+        }
+      });
+      document.addEventListener('mouseout', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('a, button, .project-card, .service-card, .contact-method, .stack-cat')) {
+          document.body.classList.remove('cursor-hover');
+        }
+      });
+    }
+  }
+
+  // Scroll progress bar
+  const bar = document.getElementById('scroll-progress');
+  if (bar) {
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      bar.style.width = (pct * 100) + '%';
+    }, { passive: true });
+  }
+</script>

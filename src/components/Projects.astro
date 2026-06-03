@@ -1,0 +1,396 @@
+---
+const categories = [
+  {
+    label: '// client_sites',
+    title: 'Client Websites',
+    projects: [
+      {
+        id: '01',
+        name: 'Impact Property Media',
+        url: 'https://impactpropertymedia.com.au',
+        desc: 'Full real-estate media site with CMS, portfolio grid, AI chatbot for lead capture, and Telegram notifications on every inquiry. Vercel + Supabase.',
+        tags: ['Next.js', 'Supabase', 'Telegram', 'AI Chatbot'],
+        highlight: true,
+      },
+      {
+        id: '02',
+        name: 'Royal Domain Café',
+        url: 'https://royal-domain-cafe.vercel.app',
+        desc: 'Café website with Isabelle AI chatbot, online menu, and Telegram lead delivery. Built and deployed in under 12 hours.',
+        tags: ['Next.js', 'Three.js', 'AI Chatbot', 'Vercel'],
+        highlight: true,
+      },
+      {
+        id: '03',
+        name: 'Saros Barbershop',
+        url: 'https://saros-barbershop.vercel.app',
+        desc: 'Local barbershop site with booking CTA, services, and gallery.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '04',
+        name: 'Tropicana Juice Bar',
+        url: 'https://tropicana-juice-bar.vercel.app',
+        desc: 'Vibrant juice bar site with menu, branding, and contact form.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '05',
+        name: 'Vasu Traders',
+        url: 'https://vasu-traders.vercel.app',
+        desc: 'Business website for a trading company with services and enquiry flow.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '06',
+        name: 'Perfect Property',
+        url: 'https://perfectproperty.vercel.app',
+        desc: 'Property media showcase site with portfolio and contact.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '07',
+        name: 'Botanical Events',
+        url: 'https://botanical-events-demo.vercel.app',
+        desc: 'Elegant events company demo site with floral aesthetic and booking CTA.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '08',
+        name: 'Nestco',
+        url: 'https://nestco-site.vercel.app',
+        desc: 'Nest & Co client site with WhatsApp bot integration. $150 site, $20/mo automation package.',
+        tags: ['Astro', 'WhatsApp Bot', 'Vercel'],
+      },
+      {
+        id: '09',
+        name: 'Pizza Tabrabane',
+        url: 'https://pizza-tabrabane.vercel.app',
+        desc: 'Pizza restaurant site with menu, location, and online ordering CTA.',
+        tags: ['Astro', 'Vercel'],
+      },
+      {
+        id: '10',
+        name: 'Tarator South Melbourne',
+        url: 'https://tarator-south-melbourne-26fc892c.vercel.app',
+        desc: 'Restaurant website for a South Melbourne eatery.',
+        tags: ['Static', 'Vercel'],
+      },
+      {
+        id: '11',
+        name: 'WPHO Site',
+        url: 'https://wpho-site.vercel.app',
+        desc: 'Professional website for WPHO with services and contact.',
+        tags: ['Static', 'Vercel'],
+      },
+      {
+        id: '12',
+        name: 'Pharmaceutica',
+        url: 'https://pharma.vercel.app',
+        desc: 'Pharma client site with React/Vite/Tailwind stack, GitHub Actions CI/CD.',
+        tags: ['React', 'Vite', 'Tailwind', 'GitHub Actions'],
+      },
+    ],
+  },
+  {
+    label: '// tools_and_apps',
+    title: 'Tools & Apps',
+    projects: [
+      {
+        id: '13',
+        name: 'Resume Forge',
+        url: 'https://www.resumeforge.surf',
+        desc: 'AI resume tailoring: paste a job description, the AI rewrites your resume to match. ATS scoring, cover letter gen, PDF export.',
+        tags: ['Python', 'FastAPI', 'Next.js', 'OpenAI', 'ReportLab'],
+        highlight: true,
+      },
+      {
+        id: '14',
+        name: 'AI Graph (NeuronMap)',
+        url: 'https://www.aigraph.site',
+        desc: 'Self-evolving AI knowledge graph. Obsidian-style D3 force graph that grows every hour via Claude API. Live on Astro.',
+        tags: ['Astro', 'D3.js', 'Claude API', 'Cron'],
+        highlight: true,
+      },
+      {
+        id: '15',
+        name: 'Prashna Kundali',
+        url: 'https://prashna-kundali.vercel.app',
+        desc: 'Vedic Prashna astrology oracle. Ask a question, get a full AI chart reading with houses, planets, and remedies.',
+        tags: ['Next.js', 'NVIDIA NIM', 'Vedic Astrology'],
+      },
+      {
+        id: '16',
+        name: 'VedicJyotish',
+        url: 'https://vedic-jyotish-chi.vercel.app',
+        desc: 'Multi-provider Vedic astrology platform. DeepSeek, OpenRouter, Kimi. Lagna, Moon sign, planetary positions.',
+        tags: ['Next.js', 'TypeScript', 'LLM', 'Vercel'],
+      },
+      {
+        id: '17',
+        name: 'GetAJob',
+        url: 'https://getajob-orcin.vercel.app',
+        desc: 'AI-powered job matching that maps your skills to real openings using semantic search and RAG.',
+        tags: ['Next.js', 'RAG', 'LLM', 'Supabase'],
+      },
+      {
+        id: '18',
+        name: 'RHIGN MVP',
+        url: 'https://rhign-mvp.vercel.app',
+        desc: 'MVP for RHIGN. Early-stage product with Next.js frontend.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '19',
+        name: 'Hamster',
+        url: 'https://hamster-rho-ruby.vercel.app',
+        desc: 'Next.js app deployed to Vercel production.',
+        tags: ['Next.js', 'Vercel'],
+      },
+      {
+        id: '20',
+        name: 'rsharma.cv',
+        url: 'https://www.rsharma.cv',
+        desc: 'Personal CV / résumé site with custom domain.',
+        tags: ['Static', 'Custom Domain'],
+      },
+      {
+        id: '21',
+        name: 'QR Redirect',
+        url: 'https://qr-redirect-gold-pi.vercel.app',
+        desc: 'QR code redirect service built on Next.js.',
+        tags: ['Next.js', 'Vercel'],
+      },
+    ],
+  },
+];
+---
+
+<section class="projects" id="projects">
+  <div class="container">
+    <div class="section-label mono fade-up">// projects.build</div>
+    <h2 class="section-title fade-up">
+      Systems I've <span class="accent">shipped</span>
+    </h2>
+    <p class="projects-sub fade-up">
+      21 projects across Vercel. Everything below is live and clickable.
+    </p>
+
+    {categories.map((cat) => (
+      <div class="category-block fade-up">
+        <div class="category-header">
+          <span class="mono category-label">{cat.label}</span>
+          <span class="category-title">{cat.title}</span>
+          <span class="mono category-count">{cat.projects.length} projects</span>
+        </div>
+        <div class="projects-grid">
+          {cat.projects.map((p, i) => (
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`project-card fade-up ${p.highlight ? 'highlight' : ''}`}
+              style={`animation-delay:${i * 0.05}s`}
+            >
+              <div class="project-top">
+                <div class="project-meta">
+                  <span class="project-id mono">{p.id}</span>
+                  <span class="project-status mono live">live</span>
+                </div>
+                <svg class="project-ext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </div>
+
+              <h3 class="project-name">{p.name}</h3>
+              <p class="project-desc">{p.desc}</p>
+
+              <div class="project-tags">
+                {p.tags.map(t => (
+                  <span class="tag mono">{t}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.projects {
+  padding: 7rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.projects-sub {
+  color: var(--muted);
+  margin-bottom: 3.5rem;
+}
+
+.category-block {
+  margin-bottom: 4rem;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.category-label {
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+}
+
+.category-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.category-count {
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-left: auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.project-card {
+  background: var(--bg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  background: var(--bg2);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.project-card:hover .project-ext {
+  color: var(--accent);
+}
+
+.project-card:hover .project-name {
+  color: var(--accent);
+}
+
+.project-card.highlight {
+  background: var(--bg2);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.project-card.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.project-id {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.project-status {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+}
+
+.project-status.live {
+  color: var(--accent3);
+  border-color: rgba(74,222,128,0.3);
+  background: rgba(74,222,128,0.05);
+}
+
+.project-ext {
+  color: var(--muted);
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  transition: color 0.2s;
+}
+
+.project-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-size: 0.67rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.55rem;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .category-header { flex-wrap: wrap; gap: 0.5rem; }
+  .category-count { margin-left: 0; }
+}
+</style>

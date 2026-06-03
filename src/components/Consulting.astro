@@ -1,0 +1,154 @@
+---
+const services = [
+  {
+    icon: '⚡',
+    name: 'AI Automation',
+    desc: 'Turn your manual workflows into autonomous pipelines. n8n, Playwright, API integrations, Telegram bots. From idea to deployed in 48 hours.'
+  },
+  {
+    icon: '🤖',
+    name: 'Multi-Agent Systems',
+    desc: 'Custom agent architectures for research, outreach, content, and ops. WhatsApp, Telegram, Discord channels. Human-in-the-loop by default.'
+  },
+  {
+    icon: '📊',
+    name: 'Data & Analytics',
+    desc: 'Business analytics, dashboards, Supabase backends, Streamlit apps. Turn your raw data into decisions your team can actually use.'
+  },
+  {
+    icon: '🖥️',
+    name: 'IT Systems & M365',
+    desc: 'Azure AD, Entra ID, Intune, DMARC/SPF setup, JIRA. Enterprise IT without the enterprise price tag. Fast diagnosis, clean resolution.'
+  },
+];
+---
+
+<section class="consulting" id="consulting">
+  <div class="container">
+    <div class="section-label mono fade-up">// consulting.services</div>
+    <h2 class="section-title fade-up">
+      What I can do<br />
+      <span class="accent">for your business</span>
+    </h2>
+    <p class="consult-sub fade-up">
+      Small teams, agencies, solo founders. I build the thing, I ship the thing. 
+      Not PowerPoint decks about "AI strategy."
+    </p>
+
+    <div class="services-grid">
+      {services.map((s, i) => (
+        <div class="service-card fade-up" style={`animation-delay:${i*0.1}s`}>
+          <div class="service-icon">{s.icon}</div>
+          <h3 class="service-name">{s.name}</h3>
+          <p class="service-desc">{s.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="consult-cta fade-up">
+      <div class="cta-text">
+        <p class="mono" style="font-size:0.8rem; color: var(--accent); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.5rem;">
+          Ready to automate?
+        </p>
+        <h3 style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; letter-spacing:-0.02em;">
+          Let's build something that runs while you sleep.
+        </h3>
+      </div>
+      <a href="#contact" class="btn-primary">Start a conversation</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.consulting {
+  padding: 7rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
+}
+
+.consult-sub {
+  color: var(--muted);
+  margin-bottom: 3.5rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  background: var(--bg);
+  padding: 2rem;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  background: var(--bg2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.service-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: var(--white);
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.consult-cta {
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: var(--bg2);
+  flex-wrap: wrap;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(245, 158, 11, 0.08);
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8910a 100%);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #f8b429 0%, var(--accent2) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.45);
+}
+</style>

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap');
+
+:root {
+  --bg: #1e1d1b;
+  --bg2: #272623;
+  --bg3: #312f2c;
+  --border: #454340;
+  --text: #e8e6df;
+  /* #7e7e71 = 5.5:1 contrast on --bg (WCAG AA). Previous #6b6b60 was 4.1:1 — below AA. */
+  --muted: #7e7e71;
+  /* Split-complementary: amber (OKLCH H≈67°) + cyan (H≈197°) — 130° apart.
+     Same warm/cool tension in every Hollywood film poster. Warm dark bg supports amber. */
+  --accent: #f59e0b;
+  --accent2: #22d3ee;
+  --accent3: #4ade80;
+  --white: #fafaf7;
+
+  /* OKLCH equivalents — used for perceptually uniform gradient interpolation */
+  --accent-oklch: oklch(78% 0.173 67);
+  --accent2-oklch: oklch(83% 0.120 197);
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Crimson Pro', Georgia, serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body { cursor: auto; }
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* Utilities */
+.mono { font-family: var(--font-mono); }
+.accent { color: var(--accent); }
+.muted { color: var(--muted); }
+
+.gradient-text {
+  /* OKLCH interpolation keeps colours vivid through the midpoint (no grey dip) */
+  background: linear-gradient(in oklch 135deg, var(--accent-oklch) 20%, var(--accent2-oklch) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* === Magnetic Cursor === */
+#cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.3s;
+  will-change: transform;
+}
+
+#cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(245, 159, 11, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s;
+  will-change: transform;
+}
+
+body.cursor-active #cursor-dot,
+body.cursor-active #cursor-ring { opacity: 1; }
+
+body.cursor-hover #cursor-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--accent2);
+}
+
+body.cursor-hover #cursor-ring {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(34, 211, 238, 0.55);
+}
+
+/* === Scroll Progress Bar === */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(in oklch 90deg, var(--accent-oklch), var(--accent2-oklch));
+  z-index: 10002;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px var(--accent); }
+  50% { box-shadow: 0 0 24px var(--accent), 0 0 48px rgba(34,211,238,0.3); }
+}
+
+@keyframes aurora-drift1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(70px, 50px) scale(1.18); }
+}
+@keyframes aurora-drift2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-55px, -40px) scale(1.12); }
+}
+@keyframes aurora-drift3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(35px, -55px) scale(0.88); }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.fade-up:nth-child(1) { animation-delay: 0.1s; }
+.fade-up:nth-child(2) { animation-delay: 0.2s; }
+.fade-up:nth-child(3) { animation-delay: 0.3s; }
+.fade-up:nth-child(4) { animation-delay: 0.4s; }
+.fade-up:nth-child(5) { animation-delay: 0.5s; }
+.fade-up:nth-child(6) { animation-delay: 0.6s; }

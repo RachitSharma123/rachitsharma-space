@@ -1,0 +1,429 @@
+---
+---
+
+<section class="hero" id="hero">
+  <!-- Aurora gradient blobs — demonstrate the amber+cyan split-complementary palette -->
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-blob a1"></div>
+    <div class="aurora-blob a2"></div>
+    <div class="aurora-blob a3"></div>
+  </div>
+
+  <!-- Decorative grid -->
+  <div class="hero-grid"></div>
+
+  <!-- Scanline effect -->
+  <div class="scanline"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-tag mono fade-up">
+      <span class="dot"></span>
+      <span>Open to full-time roles · BA · Systems Analyst · Data Analyst · Melbourne, AU</span>
+    </div>
+
+    <h1 class="hero-title fade-up">
+      Turning<br />
+      <span class="title-outline">complex problems</span><br />
+      into systems<br />
+      <span class="gradient-text">that work.</span>
+    </h1>
+
+    <p class="hero-desc fade-up">
+      Business Analyst with a builder's mindset. I bridge requirements and delivery: mapping processes, building automation, and shipping data tools that people actually use.
+      5+ years in ICT, AI systems, and operational analytics. Melbourne-based.
+    </p>
+
+    <div class="hero-actions fade-up">
+      <a href="#projects" class="btn-primary">See what I've built</a>
+      <a href="/RachitS_AI.pdf" download class="btn-ghost">Download CV ↓</a>
+    </div>
+
+    <div class="hero-stats fade-up">
+      <div class="stat">
+        <span class="stat-num mono" data-target="5" data-suffix="+">5+</span>
+        <span class="stat-label">years in ICT & ops</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num mono" data-target="750" data-suffix="+">750+</span>
+        <span class="stat-label">users supported</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num mono" data-target="21" data-suffix="+">21+</span>
+        <span class="stat-label">projects deployed</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num mono" data-target="13" data-suffix="">13</span>
+        <span class="stat-label">client sites live</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating terminal -->
+  <div class="hero-terminal fade-up" aria-hidden="true">
+    <div class="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="mono" style="font-size:0.7rem; color: var(--muted); margin-left:0.5rem;">openclaw@vps ~ $</span>
+    </div>
+    <div class="terminal-body">
+      <div class="term-line"><span class="accent">$</span> <span id="typeTarget"></span><span class="cursor">▋</span></div>
+      <div class="term-output" id="termOutput"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+}
+
+/* Aurora blobs */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+.aurora-blob.a1 {
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, rgba(245,159,11,0.18) 0%, transparent 70%);
+  top: -220px; left: -80px;
+  animation: aurora-drift1 22s ease-in-out infinite alternate;
+}
+.aurora-blob.a2 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(34,211,238,0.14) 0%, transparent 70%);
+  bottom: -180px; right: -60px;
+  animation: aurora-drift2 28s ease-in-out infinite alternate;
+}
+.aurora-blob.a3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(245,159,11,0.08) 0%, transparent 70%);
+  top: 45%; right: 28%;
+  animation: aurora-drift3 19s ease-in-out infinite alternate;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  z-index: 1;
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent2), transparent);
+  opacity: 0.2;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.9rem;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent3);
+  animation: pulse-glow 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.8rem;
+}
+
+.title-outline {
+  -webkit-text-stroke: 2px var(--text);
+  color: transparent;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8910a 100%);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #f8b429 0%, var(--accent2) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.45);
+}
+
+.btn-ghost {
+  display: inline-block;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(245, 158, 11, 0.05);
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.1);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* Floating terminal */
+.hero-terminal {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,166,35,0.1);
+  animation: fadeUp 0.8s 0.6s ease forwards;
+  opacity: 0;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+
+.terminal-bar .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: none;
+}
+.terminal-bar .dot.red { background: #ff5f57; }
+.terminal-bar .dot.yellow { background: #febc2e; }
+.terminal-bar .dot.green { background: #28c840; }
+
+.terminal-body {
+  padding: 1rem;
+  min-height: 160px;
+}
+
+.term-line {
+  color: var(--text);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: var(--accent);
+}
+
+.term-output {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.term-output .success { color: var(--accent3); }
+.term-output .warn { color: var(--accent); }
+
+@media (max-width: 1100px) {
+  .hero-terminal { display: none; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 9rem 0 3rem; }
+  .hero-inner { max-width: 100%; }
+  .hero-stats { gap: 1rem; flex-wrap: wrap; }
+  .stat-divider { display: none; }
+  .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .btn-primary, .btn-ghost { width: 100%; text-align: center; box-sizing: border-box; }
+  .hero-desc { font-size: 1rem; }
+  .hero-tag { font-size: 0.65rem; letter-spacing: 0.04em; }
+  .stat-num { font-size: 1.3rem; }
+  .stat-label { font-size: 0.65rem; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 8.5rem 0 2.5rem; }
+  .hero-stats { gap: 0.75rem; }
+  .stat { min-width: calc(50% - 0.75rem); }
+}
+</style>
+
+<script>
+const commands = [
+  {
+    cmd: 'openclaw start --agents=11',
+    output: [
+      '<span class="success">✓</span> Orchestrator agent online',
+      '<span class="success">✓</span> Researcher + Coder ready',
+      '<span class="success">✓</span> Telegram gateway active',
+      '<span class="warn">→</span> consulting_applier running...',
+    ]
+  },
+  {
+    cmd: 'python applier.py --target=20',
+    output: [
+      '<span class="success">✓</span> Scraped Workday / Lever / GH',
+      '<span class="success">✓</span> 3 new roles queued',
+      '<span class="warn">→</span> Awaiting Telegram approval',
+    ]
+  },
+  {
+    cmd: 'n8n export:workflow --all',
+    output: [
+      '<span class="success">✓</span> 14 workflows exported',
+      '<span class="success">✓</span> Supabase sync complete',
+      '<span class="warn">→</span> Pipeline healthy',
+    ]
+  }
+];
+
+let cmdIdx = 0;
+
+async function typeCommand(text: string) {
+  const target = document.getElementById('typeTarget');
+  const output = document.getElementById('termOutput');
+  if (!target || !output) return;
+
+  output.innerHTML = '';
+  target.textContent = '';
+
+  for (const ch of text) {
+    target.textContent += ch;
+    await new Promise(r => setTimeout(r, 45 + Math.random() * 30));
+  }
+}
+
+async function showOutput(lines: string[]) {
+  const output = document.getElementById('termOutput');
+  if (!output) return;
+
+  for (const line of lines) {
+    await new Promise(r => setTimeout(r, 300));
+    const div = document.createElement('div');
+    div.innerHTML = line;
+    output.appendChild(div);
+  }
+}
+
+async function runLoop() {
+  while (true) {
+    const { cmd, output } = commands[cmdIdx % commands.length];
+    await typeCommand(cmd);
+    await new Promise(r => setTimeout(r, 400));
+    await showOutput(output);
+    await new Promise(r => setTimeout(r, 3000));
+    cmdIdx++;
+  }
+}
+
+runLoop();
+</script>

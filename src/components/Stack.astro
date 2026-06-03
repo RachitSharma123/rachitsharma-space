@@ -1,0 +1,119 @@
+---
+const categories = [
+  {
+    label: 'AI & Agents',
+    items: ['n8n', 'Ollama', 'OpenRouter', 'LangChain', 'RAG', 'OpenClaw', 'Playwright', 'Telegram Bot API']
+  },
+  {
+    label: 'Backend & Data',
+    items: ['Python', 'Supabase', 'PostgreSQL', 'REST APIs', 'C# / .NET', 'FastAPI', 'Streamlit']
+  },
+  {
+    label: 'Infrastructure',
+    items: ['Ubuntu VPS', 'systemd', 'Nginx', 'GitHub Actions', 'Docker', 'SSH', 'Linux CLI']
+  },
+  {
+    label: 'Enterprise IT',
+    items: ['M365 Admin', 'Azure AD', 'Entra ID', 'Intune', 'JIRA', 'Teams', 'DMARC/SPF', 'N-able']
+  },
+  {
+    label: 'Dev',
+    items: ['Git', 'Astro', 'React', 'Tailwind', 'Vite', 'GitHub Pages', 'Formspree']
+  },
+  {
+    label: 'Analytics',
+    items: ['Power BI', 'Pandas', 'NumPy', 'Clustering', 'Factor Analysis', 'MBA-level stats']
+  }
+];
+---
+
+<section class="stack" id="stack">
+  <div class="container">
+    <div class="section-label mono fade-up">// tech.stack</div>
+    <h2 class="section-title fade-up">
+      What I work with
+    </h2>
+    <p class="stack-sub fade-up">
+      Generalist with depth. Enterprise IT by day, AI systems architect by night.
+    </p>
+
+    <div class="stack-grid">
+      {categories.map((cat, i) => (
+        <div class="stack-cat fade-up" style={`animation-delay: ${i * 0.08}s`}>
+          <div class="cat-label mono">{cat.label}</div>
+          <div class="cat-tags">
+            {cat.items.map(item => (
+              <span class="tag mono">{item}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.stack {
+  padding: 7rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.8rem;
+}
+
+.stack-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 3.5rem;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.stack-cat {
+  background: var(--bg);
+  padding: 1.8rem;
+  transition: background 0.2s;
+}
+
+.stack-cat:hover { background: var(--bg2); }
+
+.cat-label {
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.cat-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.65rem;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(245,166,35,0.05);
+}
+</style>

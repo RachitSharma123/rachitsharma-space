@@ -1,0 +1,231 @@
+---
+---
+
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+
+    <div class="contact-left fade-up">
+      <div class="section-label mono">// contact.init()</div>
+      <h2 class="contact-title">
+        Let's build<br />
+        <span class="accent">something.</span>
+      </h2>
+      <p class="contact-sub">
+        Open for consulting, full-time roles, and interesting problems.
+        I respond fast. Usually within 24 hours.
+      </p>
+
+      <div class="contact-methods">
+        <a href="mailto:rachitsharma.space@gmail.com" class="contact-method">
+          <span class="method-icon">✉</span>
+          <div>
+            <div class="method-label mono">Email</div>
+            <div class="method-val">rachitsharma.space@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/rachit-sharma-0b9b44117" target="_blank" class="contact-method">
+          <span class="method-icon">in</span>
+          <div>
+            <div class="method-label mono">LinkedIn</div>
+            <div class="method-val">Rachit Sharma</div>
+          </div>
+        </a>
+        <a href="https://github.com/RachitSharma123" target="_blank" class="contact-method">
+          <span class="method-icon">gh</span>
+          <div>
+            <div class="method-label mono">GitHub</div>
+            <div class="method-val">RachitSharma123</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form fade-up" id="contactForm" action="https://formspree.io/f/mwvwlozp" method="POST">
+      <div class="form-field">
+        <label class="mono" for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name" />
+      </div>
+      <div class="form-field">
+        <label class="mono" for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com" />
+      </div>
+      <div class="form-field">
+        <label class="mono" for="subject">What's this about?</label>
+        <select id="subject" name="subject">
+          <option value="consulting">AI Consulting / Automation</option>
+          <option value="hire">Full-time role / Contract</option>
+          <option value="collab">Collaboration</option>
+          <option value="other">Something else</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="mono" for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell me what you're building..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn mono">
+        <span id="submitText">Send message →</span>
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<style>
+.contact {
+  padding: 7rem 0 5rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+
+.contact-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  transition: all 0.2s;
+}
+
+.contact-method:hover {
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.05);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.1);
+}
+
+.method-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.method-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+}
+
+.method-val {
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--muted); }
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-field select option { background: var(--bg2); }
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, #e8910a 100%);
+  color: var(--bg);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #f8b429 0%, var(--accent2) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4);
+}
+
+@media (max-width: 900px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>
